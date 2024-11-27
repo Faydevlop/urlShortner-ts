@@ -52,7 +52,7 @@ const shortURL = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         // Generate a random string for the short URL (6 characters)
         const shortCode = crypto_1.default.randomBytes(3).toString("hex");
-        const shortURL = `${process.env.BACKEND_URL}/${shortCode}`;
+        const shortURL = `https://url.moon-cart.shop/${shortCode}`;
         const createdURL = new Link_1.Link({
             userId,
             normalLink: url,
