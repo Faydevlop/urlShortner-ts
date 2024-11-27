@@ -70,8 +70,9 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
   
       // Match the shorterLink that ends with the given shortCode
       const link = await Link.findOne({
-        shorterLink: { $regex: `${shortCode}$` },
+        shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}$`),
       });
+      
   
       if (!link) {
         res.status(404).json({ error: "Short URL not found" });
