@@ -70,8 +70,11 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
   
       // Match the shorterLink that ends with the given shortCode
       const link = await Link.findOne({
-        shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}$`),
+        shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}`),
       });
+
+      console.log('req is here ',link);
+      
       
   
       if (!link) {
@@ -81,6 +84,8 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
 
   
       res.redirect(link.normalLink);
+      console.log('original link',link.normalLink);
+      
     } catch (error: any) {
       console.error("Error during redirect:", error.message);
       res.status(500).json({ error: "An error occurred", details: error.message });
