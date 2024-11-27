@@ -42,7 +42,7 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
   
       // Generate a random string for the short URL (6 characters)
       const shortCode = crypto.randomBytes(3).toString("hex");
-      const shortURL = `${process.env.BACKEND_URL}/${shortCode}`;
+      const shortURL = `https://url.moon-cart.shop/${shortCode}`;
   
       const createdURL = new Link({
         userId,
