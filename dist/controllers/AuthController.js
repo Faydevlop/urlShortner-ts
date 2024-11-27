@@ -76,13 +76,15 @@ const redirectShortURL = (req, res) => __awaiter(void 0, void 0, void 0, functio
         const { shortCode } = req.params;
         // Match the shorterLink that ends with the given shortCode
         const link = yield Link_1.Link.findOne({
-            shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}$`),
+            shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}`),
         });
+        console.log('req is here ', link);
         if (!link) {
             res.status(404).json({ error: "Short URL not found" });
             return;
         }
         res.redirect(link.normalLink);
+        console.log('original link', link.normalLink);
     }
     catch (error) {
         console.error("Error during redirect:", error.message);
