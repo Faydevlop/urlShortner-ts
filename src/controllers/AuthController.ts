@@ -42,7 +42,7 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
   
       // Generate a random string for the short URL (6 characters)
       const shortCode = crypto.randomBytes(3).toString("hex");
-      const shortURL = `https://url.moon-cart.shop/${shortCode}`;
+      const shortURL = `https://url.fayisnambiyath.in/${shortCode}`;
   
       const createdURL = new Link({
         userId,
@@ -70,7 +70,7 @@ export const shortURL = async (req: Request, res: Response): Promise<void> => {
   
       // Match the shorterLink that ends with the given shortCode
       const link = await Link.findOne({
-        shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}`),
+        shorterLink: new RegExp(`https://url.fayisnambiyath.in/${shortCode}`),
       });
 
       console.log('req is here ',link);

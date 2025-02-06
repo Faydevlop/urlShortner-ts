@@ -52,7 +52,7 @@ const shortURL = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         // Generate a random string for the short URL (6 characters)
         const shortCode = crypto_1.default.randomBytes(3).toString("hex");
-        const shortURL = `https://url.moon-cart.shop/${shortCode}`;
+        const shortURL = `https://url.fayisnambiyath.in/${shortCode}`;
         const createdURL = new Link_1.Link({
             userId,
             normalLink: url,
@@ -76,7 +76,7 @@ const redirectShortURL = (req, res) => __awaiter(void 0, void 0, void 0, functio
         const { shortCode } = req.params;
         // Match the shorterLink that ends with the given shortCode
         const link = yield Link_1.Link.findOne({
-            shorterLink: new RegExp(`https://url.moon-cart.shop/${shortCode}`),
+            shorterLink: new RegExp(`https://url.fayisnambiyath.in/${shortCode}`),
         });
         console.log('req is here ', link);
         if (!link) {

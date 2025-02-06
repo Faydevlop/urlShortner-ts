@@ -6,10 +6,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-
+const corsOptions = {
+    origin: '*', // Allow all origins
+};
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Routes
 app.use("/", userRoutes);
